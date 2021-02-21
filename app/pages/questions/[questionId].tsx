@@ -17,8 +17,15 @@ export const Question = () => {
       </Head>
 
       <div>
-        <h1>Question {question.id}</h1>
-        <pre>{JSON.stringify(question, null, 2)}</pre>
+        <h1>{question.text}</h1>
+
+        <ul>
+          {question.choices.map((choice) => (
+            <li key={choice.id}>
+              {choice.text} - {choice.votes} votes
+            </li>
+          ))}
+        </ul>
 
         <Link href={`/questions/${question.id}/edit`}>
           <a>Edit</a>
